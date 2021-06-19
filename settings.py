@@ -1,19 +1,14 @@
 from loguru import logger
 from aiogram.types import ParseMode
+import os
 
-API_TOKEN = ''
+API_TOKEN = os.environ.get('secrets.WF_API_TOKEN')
+CHAT_IDS = os.environ.get('secrets.WF_CHAT_IDS').split()
+REPO = os.environ.get('secrets.WF_REPO')
 
-ADMIN_ID = []
-BAN_LIST = []
-
-# HIDE_SOURCE = True
-DB_PATH = '_bot.db'
 
 PM = ParseMode.MARKDOWN
 
-"""Set log settings
-loguru.loger.add(*args, **kwargs)
-"""
 LOG_FILE_NAME = "_bot.log"
 LOG_MODE = "DEBUG"
 MAX_LOG_FILE_SIZE = "10Mb"
