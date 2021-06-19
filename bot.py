@@ -14,6 +14,7 @@ if __name__ == '__main__':
     print(args)
 
     if args.action:
+        print(1)
         logging.info(args.action)
         executor.start(dp, new_release())
 
