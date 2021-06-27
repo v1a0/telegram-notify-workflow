@@ -19,6 +19,12 @@ REF = os.environ.get('GITHUB_REF')
 HEAD_REF = os.environ.get('GITHUB_HEAD_REF')
 BASE_REF = os.environ.get('GITHUB_BASE_REF')
 
+print(f"{REPO=}")
+print(f"{ACTOR=}")
+print(f"{EVENT=}")
+print(f"{REF=}")
+print(f"{HEAD_REF=}")
+print(f"{BASE_REF=}")
 
 PM = ParseMode.MARKDOWN
 
