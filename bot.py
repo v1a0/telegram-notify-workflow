@@ -9,14 +9,14 @@ async def new_event():
     if EVENT not in ['pull_request', 'push', 'release']:
         return
 
-    print(EVENT == 'release')
+    print(str(EVENT) == 'release')
 
-    if EVENT == 'release':
+    if str(EVENT) == 'release':
         await event.new_release()
 
-    print(EVENT == 'pull_request')
+    print(str(EVENT) == 'pull_request')
 
-    if EVENT == 'pull_request':
+    if str(EVENT) == 'pull_request':
         await event.new_pull_request()
 
 
