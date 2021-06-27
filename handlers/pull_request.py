@@ -1,5 +1,5 @@
 from misc import bot
-from settings import CHAT_IDS, REPO, ACTOR
+from settings import CHAT_IDS, REPO, ACTOR, BASE_REF, HEAD_REF
 from requests import get
 
 push = 'refs/heads/v1a0-patch-1'
@@ -23,13 +23,13 @@ async def new_pull_request():
     auto_merged = pull_request.get('auto_merge')
 
     msg_about = f"""
-🔀 NEW PULL REQUEST
+🔀 NEW PULL REQUEST [{BASE_REF}/{HEAD_REF}]
 👨‍💻 @{ACTOR}
 
-{title}
+{title if title else '< untitled >'}
 
 About:
-{description}
+{description if description else "< empty >"}
 
 Link:
 {link}

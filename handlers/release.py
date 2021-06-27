@@ -22,13 +22,13 @@ async def new_release():
 🔥 NEW RELEASE
 👨‍💻 @{ACTOR}
 
-{name}
+{name if name else '< no name >'}
 
 About:
-{description}
+{description if description else "< empty >"}
 
 Link:
-{link}  
+{link}
 """
 
     msg_upd = f"""

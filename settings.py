@@ -16,6 +16,8 @@ REPO = os.environ.get('GITHUB_REPOSITORY')
 ACTOR = os.environ.get('GITHUB_ACTOR')
 EVENT = os.environ.get('GITHUB_EVENT_NAME')
 REF = os.environ.get('GITHUB_REF')
+HEAD_REF = os.environ.get('GITHUB_HEAD_REF')
+BASE_REF = os.environ.get('GITHUB_BASE_REF')
 
 
 PM = ParseMode.MARKDOWN
