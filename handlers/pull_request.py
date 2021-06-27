@@ -14,7 +14,7 @@ async def new_pull_request():
 
     print(data)
 
-    pull_request = data[0]
+    pull_request = data
     title = pull_request.get('title')
     description = pull_request.get('body')
     link = pull_request.get('url')
