@@ -1,22 +1,20 @@
 from misc import dp
-from handlers import *
 from aiogram import executor
-import logging
-import argparse
+from settings import *
+import handlers as event
+
+
+def new_event():
+
+    if EVENT not in ['new_pull_request', 'push', 'release']:
+        return
+
+    if EVENT == 'release':
+        event.new_release()
+
 
 
 if __name__ == '__main__':
+    executor.start(dp, new_event())
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--action', type=str, help='Code name of action to run')
-    args = parser.parse_args()
-
-    print(args)
-
-    if args.action:
-        print(1)
-        logging.info(args.action)
-        executor.start(dp, new_release())
-
-    # executor.start_polling(dp, skip_updates=True)
 

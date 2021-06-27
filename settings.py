@@ -4,7 +4,18 @@ import os
 
 API_TOKEN = os.environ.get('secrets.WF_API_TOKEN')
 CHAT_IDS = os.environ.get('secrets.WF_CHAT_IDS').split()
-REPO = os.environ.get('secrets.WF_REPO')
+
+if not API_TOKEN:
+    os.environ.get('secrets.TG_API_TOKEN')
+
+if not CHAT_IDS:
+    os.environ.get('secrets.TG_CHAT_IDS').split()
+
+
+REPO = os.environ.get('GITHUB_REPOSITORY')
+ACTOR = os.environ.get('GITHUB_ACTOR')
+EVENT = os.environ.get('GITHUB_EVENT_NAME')
+REF = os.environ.get('GITHUB_REF')
 
 
 PM = ParseMode.MARKDOWN
