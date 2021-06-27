@@ -11,12 +11,12 @@ async def new_event():
 
     print(str(EVENT) == 'release')
 
-    if str(EVENT) == 'release':
+    if str(EVENT) in 'release':
         await event.new_release()
 
     print(str(EVENT) == 'pull_request')
 
-    if str(EVENT) == 'pull_request':
+    if str(EVENT) in 'pull_request':
         await event.new_pull_request()
 
 

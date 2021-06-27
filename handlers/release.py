@@ -4,8 +4,11 @@ from requests import get
 
 
 async def new_release():
-    url = f"https://api.github.com/repos/{REPO}/releases"
+    # url = f"https://api.github.com/repos/{REPO}/releases"
+    url = f"https://api.github.com/repos/sqllex/releases"
     data = get(url).json()
+
+    print(data)
 
     last_release = data[0]
     name = last_release.get('name')
