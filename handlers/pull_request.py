@@ -9,7 +9,7 @@ async def new_pull_request():
     pr_number = 'refs/pull/1/merge'.split('/')[-2]
 
     # url = f"https://api.github.com/repos/{REPO}/pulls/{pr_number}"
-    url = f"https://api.github.com/repos/sqllex/pulls/20"
+    url = f"https://api.github.com/repos/v1a0/sqllex/pulls/20"
     data = get(url).json()
 
     print(data)

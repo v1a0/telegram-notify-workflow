@@ -5,7 +5,7 @@ from requests import get
 
 async def new_release():
     # url = f"https://api.github.com/repos/{REPO}/releases"
-    url = f"https://api.github.com/repos/sqllex/releases"
+    url = f"https://api.github.com/repos/v1a0/sqllex/releases"
     data = get(url).json()
 
     print(data)
