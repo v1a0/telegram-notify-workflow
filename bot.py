@@ -4,13 +4,13 @@ from settings import *
 import handlers as event
 
 
-def new_event():
+async def new_event():
 
     if EVENT not in ['new_pull_request', 'push', 'release']:
         return
 
     if EVENT == 'release':
-        event.new_release()
+        await event.new_release()
 
 
 
