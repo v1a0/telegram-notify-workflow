@@ -10,7 +10,10 @@ async def new_release():
 
     print(data)
 
-    last_release = data[0]
+    if isinstance(data, list):
+        data = data[0]
+
+    last_release = data
     name = last_release.get('name')
     description = last_release.get('body')
     link = last_release.get('html_url')

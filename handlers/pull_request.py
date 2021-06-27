@@ -12,6 +12,9 @@ async def new_pull_request():
     url = f"https://api.github.com/repos/v1a0/sqllex/pulls/20"
     data = get(url).json()
 
+    if isinstance(data, list):
+        data = data[0]
+
     print(data)
 
     pull_request = data
