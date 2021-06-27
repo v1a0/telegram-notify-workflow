@@ -21,7 +21,8 @@ async def new_pull_request():
     auto_merged = pull_request.get('auto_merge')
 
     msg_about = f"""
-NEW PULL REQUEST (by {ACTOR})
+🔀 NEW PULL REQUEST
+@{ACTOR}
 
 {title}
 

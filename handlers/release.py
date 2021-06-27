@@ -16,7 +16,8 @@ async def new_release():
     link = last_release.get('html_url')
 
     msg_about = f"""
-NEW RELEASE (by {ACTOR})
+🔥 NEW RELEASE
+@{ACTOR}
 
 {name}
 
