@@ -1,19 +1,30 @@
 # How to use
 
-## cloning
+## Create new workflow
 
-Create in you repo file in this path `.github/workflows/telegram-notification.yml` (or clone it fom this repo)
+Create in you github repo file in this path `.github/workflows/telegram-notification.yml` (or clone it fom this one repo)
 
 Enter this script into it
 
 ```yml
 # This workflow will send notification about new releases in selected telegram chats
+# Read more here https://github.com/v1a0/telegram-notify-workflow
 
 name: Telegram notifications
 
 on:
   release:
     types: [created]
+  push:
+    branches:
+      - main
+      - dev
+      - 'dev/**'
+  pull_request:
+    branches:
+      - main
+      - dev
+      - 'dev/**'
 
 jobs:
   telegram-bot:
@@ -40,26 +51,14 @@ jobs:
       env:
         secrets.WF_API_TOKEN: ${{ secrets.WF_API_TOKEN }}
         secrets.WF_CHAT_IDS: ${{ secrets.WF_CHAT_IDS }}
-        secrets.WF_REPO: "v1a0/telegram-notify-workflow"
       run: |
         cd telegram-notify-workflow
-        python bot.py --action release
+        python bot.py
 
 ```
 
 ## setups
-Find this line in this file:
-```yml
-secrets.WF_REPO: "v1a0/telegram-notify-workflow"
-```
- You have to change ant type here you github `nickname/repo_name`
- For example my username here `v1a0` and my new repo `new_repo`, so this line be look like this:
- 
-```yml
-secrets.WF_REPO: "v1a0/new_repo"
-```
-
-Then open setting your repo on github
+Open settings of your repo on github:
 
 `https://github.com/__username__/__repo__/settings`
 
@@ -68,12 +67,12 @@ Enter you username and repo-name instead of `__username__` and `__repo__`
 Go to "Secrets" folder and create 2 new repository secrets
 ```shell
 # 1'st one
-name: "WF_API_TOKEN"
+name: "TG_API_TOKEN"
 value: (api token to your bot)
 
 # 2'nd
-name: "WF_CHAT_IDS"
-value: (chat id's with spaces between them)
+name: "TG_CHAT_IDS"
+value: (chat id`s with spaces between them)
 ```
 
-Save it. Release a new version of your product and enjoy!
+Save it. Release a new version or make pr and enjoy!

@@ -7,15 +7,14 @@ push = 'refs/heads/v1a0-patch-1'
 
 async def new_pull_request():
     pr_number = 'refs/pull/1/merge'.split('/')[-2]
+    url = f"https://api.github.com/repos/{REPO}/pulls/{pr_number}"
 
-    # url = f"https://api.github.com/repos/{REPO}/pulls/{pr_number}"
-    url = f"https://api.github.com/repos/v1a0/sqllex/pulls/20"
+    # url = f"https://api.github.com/repos/v1a0/sqllex/pulls/20"
+
     data = get(url).json()
 
     if isinstance(data, list):
         data = data[0]
-
-    print(data)
 
     pull_request = data
     title = pull_request.get('title')
@@ -25,7 +24,7 @@ async def new_pull_request():
 
     msg_about = f"""
 🔀 NEW PULL REQUEST
-@{ACTOR}
+👨‍💻 @{ACTOR}
 
 {title}
 

@@ -1,10 +1,21 @@
 # This workflow will send notification about new releases in selected telegram chats
+# Read more here https://github.com/v1a0/telegram-notify-workflow
 
 name: Telegram notifications
 
 on:
   release:
     types: [created]
+  push:
+    branches:
+      - main
+      - dev
+      - 'dev/**'
+  pull_request:
+    branches:
+      - main
+      - dev
+      - 'dev/**'
 
 jobs:
   telegram-bot:
@@ -31,7 +42,6 @@ jobs:
       env:
         secrets.WF_API_TOKEN: ${{ secrets.WF_API_TOKEN }}
         secrets.WF_CHAT_IDS: ${{ secrets.WF_CHAT_IDS }}
-        secrets.WF_REPO: "v1a0/telegram-notify-workflow"
       run: |
         cd telegram-notify-workflow
-        python bot.py --action release
+        python bot.py
