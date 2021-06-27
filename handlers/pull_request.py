@@ -24,8 +24,8 @@ async def new_pull_request():
 
     msg_about = f"""
 🔀 NEW PULL REQUEST
-↪️: {BASE_REF}/{HEAD_REF}
-👨‍💻: {ACTOR}
+↪️ {BASE_REF}/{HEAD_REF}
+👨‍💻 {ACTOR}
 
 {title if title else '< untitled >'}
 
