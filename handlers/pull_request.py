@@ -13,7 +13,7 @@ async def new_pull_request():
 
     data = get(url).json()
 
-    print(f"{REPO=}")
+    print(f"{url=}")
     print(f"{data=}")
 
     if isinstance(data, list):

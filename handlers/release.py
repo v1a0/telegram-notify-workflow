@@ -10,7 +10,7 @@ async def new_release():
 
     data = get(url).json()
 
-    print(f"{REPO=}")
+    print(f"{url=}")
     print(f"{data=}")
 
     if isinstance(data, list):
