@@ -5,10 +5,13 @@ from requests import get
 
 async def new_release():
     url = f"https://api.github.com/repos/{REPO}/releases"
+
     # url = f"https://api.github.com/repos/v1a0/sqllex/releases"
+
     data = get(url).json()
 
-    print(data)
+    print(f"{REPO=}")
+    print(f"{data=}")
 
     if isinstance(data, list):
         data = data[0]
