@@ -1,12 +1,12 @@
 from misc import bot
-from settings import CHAT_IDS, REPO, ACTOR, BASE_REF, HEAD_REF
+from settings import CHAT_IDS, REPO, ACTOR, BASE_REF, HEAD_REF, REF
 from requests import get
 
 push = 'refs/heads/v1a0-patch-1'
 
 
 async def new_pull_request():
-    pr_number = 'refs/pull/1/merge'.split('/')[-2]
+    pr_number = REF.split('/')[-2]
     url = f"https://api.github.com/repos/{REPO}/pulls/{pr_number}"
 
     # url = f"https://api.github.com/repos/v1a0/sqllex/pulls/20"
