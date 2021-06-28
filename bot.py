@@ -9,20 +9,16 @@ async def new_event():
     if EVENT not in ['pull_request', 'push', 'release']:
         return
 
-    print(str(EVENT) == 'release')
-
-    if str(EVENT) in 'release':
+    if EVENT == 'release':
         await event.new_release()
 
-    print(str(EVENT) == 'pull_request')
-
-    if str(EVENT) in 'pull_request':
+    if EVENT == 'pull_request':
         await event.new_pull_request()
 
-
+    if EVENT == 'push':
+        await event.new_push()
 
 if __name__ == '__main__':
-    print(EVENT)
     executor.start(dp, new_event())
 
 
